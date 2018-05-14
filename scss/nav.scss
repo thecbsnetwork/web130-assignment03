@@ -22,9 +22,10 @@ nav {
         background: $nav-background;
         &.open {
             li {
-                &.mobile-only {
+                &#mobile-menu {
                     text-transform: uppercase;
-                    background: url('../images/x-icon.png') no-repeat;
+                    background-image: url('../images/x-icon.png');
+                    background-repeat: no-repeat;
                     @include size(medium) {
                         display: none;
                     }
@@ -34,11 +35,15 @@ nav {
                 }
                 text-align: center;
                 // position: relative;
+                &:hover {
+                    background: $link-hover-color;
+                    // color: $nav-font-color;
+                }
                 a {
                     display: block;
                     padding: 0 20px;
                     line-height: $nav-line-height;
-                    background: $nav-background;
+                    // background: $nav-background;
                     color: $nav-font-color;
                     text-decoration: none;
                     border-bottom: $link-border-white;
@@ -52,7 +57,7 @@ nav {
                         border-bottom: none;
                     }
                     &:hover {
-                        background: $link-hover-color;
+                        // background: $link-hover-color;
                         color: $nav-font-color;
                     }
                 } // Dropdown List Mobile
@@ -71,17 +76,23 @@ nav {
         }
         &.closed {
             li {
-                &#mobile-menu {
+                &.mobile-only {
                     text-transform: uppercase;
+                    background: url('../images/hamburger.png') no-repeat;
+                    // min-width:275px;
+                    text-align: center;
                 }
-                background: url('../images/hamburger.png') no-repeat;
-                // min-width:275px;
-                text-align: center;
+                @include size(medium) {
+                    display: none;
+                }
+                @include size(large) {
+                    display: none;
+                }
                 a {
                     display: block;
                     padding: 0 20px;
                     line-height: $nav-line-height;
-                    background: $nav-background;
+                    // background: $nav-background;
                     color: $nav-font-color;
                     text-decoration: none;
                     &:hover {
@@ -105,14 +116,17 @@ nav {
         @include size(medium) {
             width: 100%;
             margin: 0 auto;
-            display: flex;
+            height: 45px;
+            // display: flex;
+            display: block;
             flex-flow: row nowrap;
             justify-content: space-around;
             align-items: center;
             position: relative;
             li {
                 background: none;
-                display: flex;
+                // display: flex;
+                float: left;
                 flex: 0 1 auto;
                 align-items: center;
                 margin: 0;
