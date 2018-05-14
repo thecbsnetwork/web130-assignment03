@@ -1,36 +1,39 @@
-@import "colors";
-@import "grid";
-
+@import "_colors";
+@import "_grid";
 nav {
-    float: left;
     font-family: $nav-font;
-    font-size:$nav-font-size;
+    font-size: $nav-font-size;
     @include size(medium) {
-        min-width:$content-width-medium;
-        background:$nav-background;
+        min-width: $content-width-medium;
+        background: $nav-background;
     }
     @include size(large) {
-        width:$content-width-large;
-        background:$nav-background;
+        width: $content-width-large;
+        background: $nav-background;
     }
     ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
+        max-width: 1100px;
+        width: 100%;
+        float: left;
+        line-height: $nav-line-height;
+        background: $nav-background;
         &.open {
             li {
                 &.mobile-only {
                     text-transform: uppercase;
                     background: url('../images/x-icon.png') no-repeat;
                     @include size(medium) {
-                        display:none;
+                        display: none;
                     }
                     @include size(large) {
-                        display:none;
+                        display: none;
                     }
                 }
                 text-align: center;
-                position: relative;
+                // position: relative;
                 a {
                     display: block;
                     padding: 0 20px;
@@ -38,111 +41,113 @@ nav {
                     background: $nav-background;
                     color: $nav-font-color;
                     text-decoration: none;
-                    border-bottom:$link-border-white;
-                        @include size(medium) {
-                            width:100%;
-                            border-right:$link-border-white;
-                            border-bottom:none;
-                        }
-                        @include size(large) {
-                            border-right:$link-border-white;
-                            border-bottom:none;
-                        }
-                        &:hover {
-                            background: $link-hover-color;
-                            color: $nav-font-color;
-                        }
+                    border-bottom: $link-border-white;
+                    @include size(medium) {
+                        width: 100%;
+                        border-right: $link-border-white;
+                        border-bottom: none;
+                    }
+                    @include size(large) {
+                        border-right: $link-border-white;
+                        border-bottom: none;
+                    }
+                    &:hover {
+                        background: $link-hover-color;
+                        color: $nav-font-color;
+                    }
                 } // Dropdown List Mobile
                 ul li {
-                    min-width: 275px;
+                    // min-width: 275px;
                     a {
                         padding: 10px;
                         line-height: 20px;
-                        border:none;
+                        border: none;
                     }
                     &:nth-child(4) {
-                        border-bottom:$link-border-white;
+                        border-bottom: $link-border-white;
                     }
                 }
             }
         }
-    &.closed {
-        li {
-            &#mobile-menu {
-                text-transform: uppercase;
-            }
-            background: url('../images/hamburger.png') no-repeat;
-            min-width:275px;
-            text-align: center;
-            a {
-                display: block;
-                padding: 0 20px;
-                line-height: $nav-line-height;
-                background: $nav-background;
-                color: $nav-font-color;
-                text-decoration: none;
-                &:hover {
-                  background: $link-hover-color;
-                  color: $nav-font-color;
+        &.closed {
+            li {
+                &#mobile-menu {
+                    text-transform: uppercase;
                 }
-            }
-            &:nth-child(n+2) {
-                display:none;
-                @include size(medium) {
-                    display:flex;
-                    flex:0 1 auto;
+                background: url('../images/hamburger.png') no-repeat;
+                // min-width:275px;
+                text-align: center;
+                a {
+                    display: block;
+                    padding: 0 20px;
+                    line-height: $nav-line-height;
+                    background: $nav-background;
+                    color: $nav-font-color;
+                    text-decoration: none;
+                    &:hover {
+                        background: $link-hover-color;
+                        color: $nav-font-color;
+                    }
                 }
-                @include size(large) {
-                    display:flex;
-                    flex:0 1 auto;
+                &:nth-child(n+2) {
+                    display: none;
+                    @include size(medium) {
+                        display: flex;
+                        flex: 0 1 auto;
+                    }
+                    @include size(large) {
+                        display: flex;
+                        flex: 0 1 auto;
+                    }
                 }
             }
         }
-    }
         @include size(medium) {
-            width:100%;
-            margin:0 auto;
-            display:flex;
-            flex-flow:row nowrap;
-            justify-content:space-around;
-            align-items:center;
-            position:relative;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            align-items: center;
+            position: relative;
             li {
-                background:none;
-                display:flex;
+                background: none;
+                display: flex;
                 flex: 0 1 auto;
                 align-items: center;
-                margin:0;
-                padding:0;
+                margin: 0;
+                padding: 0;
+                width: 20%;
                 ul.dropdown {
-                    display:none;
+                    display: none;
                 }
                 a {
-                    width:100%;
-                    border-right:$link-border-white;
-                    width:100%;
+                    width: 100%;
+                    border-right: $link-border-white;
+                    width: 100%;
                 }
                 &.mobile-only {
-                    display:none;
+                    display: none;
                 }
                 &:hover {
                     ul {
                         &.dropdown {
                             //cannot get this to contain within nav width
-                            position:absolute;
-                            display:flex;
-                            left:0;
-                            top:100%;
-                            border-top:$link-border-white;
-                            justify-content:center;
-                            max-width:100%;
-                            min-width: 100%;
+                            position: absolute;
+                            display: flex;
+                            left: 0;
+                            top: 100%;
+                            border-top: $link-border-white;
+                            justify-content: center;
+                            // max-width: 100%;
+                            // min-width: 100%;
+                            width: 20%;
                             white-space: nowrap;
                             li {
                                 white-space: nowrap;
                                 a {
                                     white-space: nowrap;
-                                    border:none;
+                                    border: none;
                                 }
                             }
                         }
@@ -151,53 +156,56 @@ nav {
             }
         }
         @include size(large) {
-            width:100%;
-            margin:0 auto;
-            display:flex;
-            flex-flow:row nowrap;
-            position:relative;
-            text-align:left;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-flow: row nowrap;
+            position: relative;
+            text-align: left;
             li {
-                min-width:0;
-                background:none;
-                display:flex;
+                min-width: 0;
+                background: none;
+                display: flex;
                 flex: 0 1 auto;
-                align-items:center;
-                margin:0;
-                padding:0;
+                align-items: center;
+                margin: 0;
+                padding: 0;
+                width: 20%;
                 ul.dropdown {
-                    display:none;
+                    display: none;
                 }
                 a {
-                    text-align:left;
-                    width:100%;
-                    border-left:$link-border-white;
-                    border-right:$link-border-white;
+                    text-align: left;
+                    width: 100%;
+                    border-left: $link-border-white;
+                    border-right: $link-border-white;
                     &:last-child {
-                        border:none;
+                        border: none;
                     }
                 }
                 &.mobile-only {
-                    display:none;
+                    display: none;
                 }
                 &:hover {
                     ul.dropdown {
-                        position:absolute;
-                        display:flex;
-                        flex:0 1 auto;
-                        flex-direction:column;
-                        left:1;
-                        top:100%;
+                        position: absolute;
+                        display: flex;
+                        flex: 0 1 auto;
+                        flex-direction: column;
+                        left: 1;
+                        top: 100%;
                         justify-content: flex-start;
-                        min-width: 100%;
+                        // min-width: 100%;
+                        width: 20%;
                         white-space: nowrap;
-                        li  {
-                            border-left:$link-border-white;
+                        li {
+                            border-left: $link-border-white;
+                            width: 100%;
                             a {
                                 white-space: nowrap;
-                                text-align:left;
+                                text-align: left;
                                 //cannot get li/a to be exact width
-                                max-width:9%;
+                                // max-width: 9%;
                                 //tried to add border-right to li
                             }
                         }
