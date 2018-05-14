@@ -1,0 +1,21 @@
+$content-width-large: 1000px;
+$content-width-medium:768px;
+
+//mobile first
+@mixin size($size) {
+    @if $size == small {
+        @media screen and (max-width: 30em) {
+            @content;
+        }
+    }
+    @else if $size == medium {
+        @media screen and (min-width: 47.5em) and (max-width: 63.99em) {
+            @content;
+        }
+    }
+    @else if $size == large {
+        @media screen and (min-width: 64em) {
+            @content;
+        }
+    }
+}
