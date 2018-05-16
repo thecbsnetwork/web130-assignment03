@@ -1,6 +1,7 @@
-html, body {
+* {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  box-sizing: border-box; }
 
 nav {
   float: left;
@@ -9,6 +10,9 @@ nav {
   max-width: 1000px;
   background-color: #2DA9FF;
   height: 45px; }
+  @media screen and (min-width: 64em) {
+    nav {
+      width: 1000px; } }
   nav ul {
     width: 275px;
     margin: 0;
@@ -40,6 +44,7 @@ nav {
         nav ul.open li ul.dropdown li:nth-child(4) {
           border-bottom: 1px solid #FFFFFF; } }
     nav ul li {
+      width: auto;
       list-style-type: none;
       margin: 0;
       padding: 0; }
@@ -59,58 +64,48 @@ nav {
         background-color: #0A75BE; }
     @media screen and (min-width: 30.1em) and (max-width: 63.99em) {
       nav ul {
-        width: 768px;
-        margin: 0 auto;
-        text-align: justify; }
-        nav ul > li {
-          display: inline-block;
-          width: 30%;
-          position: relative;
-          margin: 0;
-          padding: 0; }
-          nav ul > li#mobile-menu {
+        width: 768px; }
+        nav ul li {
+          float: left;
+          width: 33.33%;
+          border-right: 1px solid #FFFFFF; }
+          nav ul li .dropdown {
             display: none; }
-          nav ul > li > a {
-            border-right: 1px solid #FFFFFF; }
-        nav ul a {
-          width: 100%; }
-          nav ul a.active {
-            background-color: #0A75BE; }
-        nav ul ul.dropdown {
-          display: none;
-          position: absolute;
-          top: 45px;
-          left: -130%;
-          border-top: 1px solid #FFFFFF; }
-        nav ul:after {
-          content: '';
-          width: 100%;
-          display: inline-block; } }
+            nav ul li .dropdown li {
+              width: 25%; }
+          nav ul li:hover ul.dropdown {
+            display: flex;
+            margin-left: -100%;
+            width: 768px; }
+            nav ul li:hover ul.dropdown li {
+              border-right: 0; }
+          nav ul li#mobile-menu {
+            display: none; } }
     @media screen and (min-width: 64em) {
       nav ul {
-        width: 1000px;
+        display: flex;
         height: 45px; }
         nav ul li {
-          display: inline-block;
-          position: relative; }
+          width: 47%;
+          padding: 0;
+          border-right: 1px solid #FFFFFF; }
           nav ul li#mobile-menu {
+            display: none; }
+          nav ul li:last-child {
+            border: none; }
+          nav ul li .dropdown {
             display: none; }
           nav ul li a {
             text-align: left;
-            padding: 0 20px;
             width: 100%; }
-            nav ul li a:last-child {
-              border: none; }
             nav ul li a.active {
-              border-left: 1px solid #FFFFFF;
               background-color: #0A75BE; }
-        nav ul ul.dropdown {
-          display: none;
-          position: absolute; }
-          nav ul ul.dropdown li {
-            display: block;
-            max-width: 10%; }
-            nav ul ul.dropdown li a {
-              text-align: left; } }
+          nav ul li:hover ul.dropdown {
+            display: block; }
+            nav ul li:hover ul.dropdown li a {
+              text-align: left;
+              border: none; }
+            nav ul li:hover ul.dropdown li:last-child {
+              border-right: 1px solid #FFFFFF; } }
 
 /*# sourceMappingURL=nav.css.map */
