@@ -8,12 +8,17 @@
     <script src="js/nav.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
     </head>
-    <header>
+    <body>
         <nav>
             <ul class="closed">
-                <li id="mobile-menu" class="mobile-only"><a href="#">Menu</a></li>
+                <li id="mobile-menu" class="mobile-only">
+                    <a href="#">
+                        <div id="hamburger"></div>
+                        Menu
+                    </a>
+                </li>
                 <li><a href="#">Home</a></li>
-                <li><a href="#" class="active">Products</a>
+                <li><a href="#" class="active dropdown-link">Products</a>
                     <ul class="dropdown">
                         <li><a href="#">Hats</a></li>
                         <li><a href="#">Gloves</a></li>
@@ -24,7 +29,5 @@
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
-    </header>
-    <body>
     </body>
 </html>

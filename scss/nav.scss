@@ -16,45 +16,46 @@ nav {
         max-width:$content-width-large;
         margin:0;
         padding:0;
-        &.closed {
-            div#hamburger {
-                float:left;
-                margin:10px -22px 10px 0;
-                width:22px;
-                height:22px;
-                background-image: url('../images/hamburger.png');
-                background-size:cover;
+        @include size(small) {
+            &.closed {
+                div#hamburger {
+                    float:left;
+                    margin:10px -22px 10px 0;
+                    width:22px;
+                    height:22px;
+                    background-image: url('../images/hamburger.png');
+                    background-size:cover;
+                }
+                li:nth-child(n+2) {
+                    display:none;
+                }
+                ul.dropdown {
+                    display:none;
+                }
             }
-            li:nth-child(n+2) {
-                display:none;
-            }
-            ul.dropdown {
-                display:none;
-            }
-        }
-        &.open {
-            div#hamburger {
-                float:left;
-                margin:10px -22px 10px 0;
-                width:22px;
-                height:22px;
-                background-image: url('../images/x-icon.png');
-                background-size:cover;
-            }
-            li ul.dropdown {
-                width:$content-width;
-                li {
-                    a {
-                        line-height:$nav-line-height;
-                        border:none;
-                    }
-                    &:nth-child(4) {
-                        border-bottom:$link-border-white;
+            &.open {
+                div#hamburger {
+                    float:left;
+                    margin:10px -22px 10px 0;
+                    width:22px;
+                    height:22px;
+                    background-image: url('../images/x-icon.png');
+                    background-size:cover;
+                }
+                li ul.dropdown {
+                    width:$content-width;
+                    li {
+                        a {
+                            line-height:$nav-line-height;
+                            border:none;
+                        }
+                        &:nth-child(4) {
+                            border-bottom:$link-border-white;
+                        }
                     }
                 }
             }
         }
-    }
     li {
         list-style-type: none;
         margin:0;
@@ -76,5 +77,56 @@ nav {
         text-decoration: none;
         border-bottom:$link-border-white;
         width:100%;
+    }
+    @include size(medium) {
+        width:$content-width-medium;
+        margin:0 auto;
+        text-align:justify;
+            li {
+                display:inline-block;
+                width:30%;
+                position: relative;
+                margin:0;
+                padding:0;
+                &#mobile-menu {
+                    display:none;
+                }
+                > a {
+                    border-right:$link-border-white;
+                }
+            }
+            a {
+                width:100%;
+                &.active {
+                    background-color:$link-hover-color;
+                }
+            }
+            ul.dropdown {
+                display:none;
+                position:absolute;
+                top:$nav-line-height;
+                left:-130%;
+                text-align:justify;
+                border-top:$link-border-white;
+                max-height:$nav-line-height;
+                width:$content-width-medium;
+                margin:0 auto;
+                li {
+                    display:inline-block;
+                    left:0;
+                    white-space: nowrap;
+                }
+                &:after {
+                    content:'';
+                    width:100%;
+                    display:inline-block;
+                }
+            }
+            &:after {
+                content: '';
+                width: 100%;
+                display: inline-block;
+            }
+        }
     }
 }
