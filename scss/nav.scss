@@ -11,9 +11,11 @@ nav {
     float:left;
     font-family:$nav-font;
     font-size:$nav-font-size;
+    max-width:$content-width-large;
+    background-color: $nav-background;
+    height:$nav-line-height;
     ul {
         width:$content-width;
-        max-width:$content-width-large;
         margin:0;
         padding:0;
         @include size(small) {
@@ -82,7 +84,7 @@ nav {
         width:$content-width-medium;
         margin:0 auto;
         text-align:justify;
-            li {
+            > li {
                 display:inline-block;
                 width:30%;
                 position: relative;
@@ -106,21 +108,7 @@ nav {
                 position:absolute;
                 top:$nav-line-height;
                 left:-130%;
-                text-align:justify;
                 border-top:$link-border-white;
-                max-height:$nav-line-height;
-                width:$content-width-medium;
-                margin:0 auto;
-                li {
-                    display:inline-block;
-                    left:0;
-                    white-space: nowrap;
-                }
-                &:after {
-                    content:'';
-                    width:100%;
-                    display:inline-block;
-                }
             }
             &:after {
                 content: '';
@@ -128,5 +116,39 @@ nav {
                 display: inline-block;
             }
         }
+    @include size(large) {
+        width:$content-width-large;
+        height:$nav-line-height;
+        li {
+            display:inline-block;
+            position:relative;
+            &#mobile-menu {
+                display:none;
+            }
+            a {
+                text-align:left;
+                padding:0 20px;
+                width:100%;
+                &:last-child {
+                    border:none;
+                }
+                &.active {
+                    border-left:$link-border-white;
+                    background-color:$link-hover-color;
+                }
+            }
+        }
+        ul.dropdown {
+            display:none;
+            position:absolute;
+            li {
+                display:block;
+                max-width:10%;
+                a {
+                    text-align:left;
+                }
+            }
+        }
+    }
     }
 }

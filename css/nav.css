@@ -5,10 +5,12 @@ html, body {
 nav {
   float: left;
   font-family: "Inconsolata", sans-serif;
-  font-size: 22px; }
+  font-size: 22px;
+  max-width: 1000px;
+  background-color: #2DA9FF;
+  height: 45px; }
   nav ul {
     width: 275px;
-    max-width: 1000px;
     margin: 0;
     padding: 0; }
     @media screen and (max-width: 30em) {
@@ -60,15 +62,15 @@ nav {
         width: 768px;
         margin: 0 auto;
         text-align: justify; }
-        nav ul li {
+        nav ul > li {
           display: inline-block;
           width: 30%;
           position: relative;
           margin: 0;
           padding: 0; }
-          nav ul li#mobile-menu {
+          nav ul > li#mobile-menu {
             display: none; }
-          nav ul li > a {
+          nav ul > li > a {
             border-right: 1px solid #FFFFFF; }
         nav ul a {
           width: 100%; }
@@ -79,22 +81,36 @@ nav {
           position: absolute;
           top: 45px;
           left: -130%;
-          text-align: justify;
-          border-top: 1px solid #FFFFFF;
-          max-height: 45px;
-          width: 768px;
-          margin: 0 auto; }
-          nav ul ul.dropdown li {
-            display: inline-block;
-            left: 0;
-            white-space: nowrap; }
-          nav ul ul.dropdown:after {
-            content: '';
-            width: 100%;
-            display: inline-block; }
+          border-top: 1px solid #FFFFFF; }
         nav ul:after {
           content: '';
           width: 100%;
           display: inline-block; } }
+    @media screen and (min-width: 64em) {
+      nav ul {
+        width: 1000px;
+        height: 45px; }
+        nav ul li {
+          display: inline-block;
+          position: relative; }
+          nav ul li#mobile-menu {
+            display: none; }
+          nav ul li a {
+            text-align: left;
+            padding: 0 20px;
+            width: 100%; }
+            nav ul li a:last-child {
+              border: none; }
+            nav ul li a.active {
+              border-left: 1px solid #FFFFFF;
+              background-color: #0A75BE; }
+        nav ul ul.dropdown {
+          display: none;
+          position: absolute; }
+          nav ul ul.dropdown li {
+            display: block;
+            max-width: 10%; }
+            nav ul ul.dropdown li a {
+              text-align: left; } }
 
 /*# sourceMappingURL=nav.css.map */
